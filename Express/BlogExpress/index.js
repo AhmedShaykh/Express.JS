@@ -5,10 +5,10 @@ const app = express();
 
 const port = 4000;
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "static")));
 
-app.get('/home', (req, res) => {
-    res.send('<h1>Learning Express.JS!</h1>')
+app.get('/', (req, res) => {
+    res.sendFile();
 })
 
 app.get('/about', (req, res) => {
@@ -16,14 +16,6 @@ app.get('/about', (req, res) => {
     res.status(202);
 })
 
-app.get('/data', middleWare, (req, res) => {
-    res.json({ "ahmed": 4 });
-})
-
-app.get('/data/:name', (req, res) => {
-    res.send("Hello " + req.params.name);
-})
-
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Example app listening on port ${port}`);
 })

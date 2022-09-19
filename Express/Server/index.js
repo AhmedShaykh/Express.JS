@@ -8,7 +8,7 @@ const port = 4000;
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/home', (req, res) => {
-    res.send('<h1>Learning Express.JS!</h1>')
+    res.send('<h1>Learning Express.JS!</h1>');
 })
 
 app.get('/about', (req, res) => {
@@ -25,5 +25,5 @@ app.get('/data/:name', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Example app listening on port ${port}`);
 })
