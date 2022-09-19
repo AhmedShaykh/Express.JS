@@ -1,10 +1,16 @@
-import express from 'express';
+const express = require('express');
+const path = require('path');
+
 const app = express();
 
 const port = 4000;
 
 app.get('/', (req, res) => {
     res.send('<h1>Learning Express.JS!</h1>')
+})
+
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, "/about.html"));
 })
 
 app.listen(port, () => {
