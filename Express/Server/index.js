@@ -5,12 +5,7 @@ const app = express();
 
 const port = 4000;
 
-// const middleWare = (req, res, next) => {
-//     console.log(req);
-// }
-
 app.use(express.static(path.join(__dirname, "public")));
-// app.use(middleWare);
 
 app.get('/home', (req, res) => {
     res.send('<h1>Learning Express.JS!</h1>')
@@ -21,8 +16,12 @@ app.get('/about', (req, res) => {
     res.status(202);
 })
 
-app.get('/data', (req, res) => {
+app.get('/data', middleWare, (req, res) => {
     res.json({ "ahmed": 4 });
+})
+
+app.get('/data/:name', (req, res) => {
+    res.send("Hello " + req.params.name);
 })
 
 app.listen(port, () => {
