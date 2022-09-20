@@ -15,14 +15,22 @@ router.get('/blog', (req, res) => {
     // });
     // res.sendFile(path.join(__dirname, "../views/blog.html"));
 
-    res.render("blogHome");
+    res.render("blogHome", {
+        blogs: blogs
+    });
 });
 
 router.get('/blogpost/:slug', (req, res) => {
     myBlogs = blogs.filter((e) => {
         return e.slug == req.params.slug;
     });
-    res.sendFile(path.join(__dirname, "../views/blogpage.html"));
+    // res.sendFile(path.join(__dirname, "../views/blogpage.html"));
+    // console.log(myBlogs);
+
+    res.render("blogPage", {
+        title: myBlogs[0].title,
+        content: myBlogs[0].content
+    });
 });
 
 module.exports = router;
