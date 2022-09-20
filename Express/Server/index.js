@@ -16,7 +16,7 @@ app.get('/about', (req, res) => {
     res.status(202);
 })
 
-app.get('/data', middleWare, (req, res) => {
+app.get('/data', (req, res) => {
     res.json({ "ahmed": 4 });
 })
 
