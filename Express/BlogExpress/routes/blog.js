@@ -10,10 +10,12 @@ router.get('/', (req, res) => {
 });
 
 router.get('/blog', (req, res) => {
-    blogs.forEach(e => {
-        console.log(e.title);
-    });
-    res.sendFile(path.join(__dirname, "../views/blog.html"));
+    // blogs.forEach(e => {
+    //     console.log(e.title);
+    // });
+    // res.sendFile(path.join(__dirname, "../views/blog.html"));
+
+    res.render("blogHome");
 });
 
 router.get('/blogpost/:slug', (req, res) => {
