@@ -5,21 +5,22 @@ const blogs = require('../data/blogs');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "../templates/index.html"));
+    // res.sendFile(path.join(__dirname, "../views/index.html"));
+    res.render("home");
 });
 
 router.get('/blog', (req, res) => {
     blogs.forEach(e => {
         console.log(e.title);
     });
-    res.sendFile(path.join(__dirname, "../templates/blog.html"));
+    res.sendFile(path.join(__dirname, "../views/blog.html"));
 });
 
 router.get('/blogpost/:slug', (req, res) => {
     myBlogs = blogs.filter((e) => {
         return e.slug == req.params.slug;
     });
-    res.sendFile(path.join(__dirname, "../templates/blogpage.html"));
+    res.sendFile(path.join(__dirname, "../views/blogpage.html"));
 });
 
 module.exports = router;
