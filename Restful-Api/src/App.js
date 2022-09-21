@@ -1,12 +1,9 @@
 const express = require('express');
+require("./db/conn");
 const app = express();
 const port = process.env.PORT || 8000;
 
-app.get("/", (req, res) => {
-    res.send("Home Page");
-});
-
-app.post("/students", (req, res) => {
+app.post("/users", (req, res) => {
     res.send("Students Data");
 });
 
