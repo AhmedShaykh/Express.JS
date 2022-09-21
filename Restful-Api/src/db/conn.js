@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/users-api", {
+const url = "mongodb+srv://admin:database1234@cluster0.manmfeh.mongodb.net/?retryWrites=true&w=majority";
+
+mongoose.connect(url, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
