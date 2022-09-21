@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const url = "mongodb+srv://admin:database1234@cluster0.manmfeh.mongodb.net/?retryWrites=true&w=majority";
+const url = "mongodb+srv://admin:database1234@cluster0.manmfeh.mongodb.net/testingdb?retryWrites=true&w=majority";
 
 mongoose.connect(url, {
     useCreateIndex: true,

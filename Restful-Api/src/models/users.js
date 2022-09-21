@@ -7,4 +7,28 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 3
     },
+    email: {
+        type: String,
+        required: true,
+        unique: [true, "Email Id Already Here!"],
+        validate(value) {
+            if (!validator.isEmail(value)) {
+                throw new Error("Invalid Email")
+            }
+        }
+    },
+    phone: {
+        type: Number,
+        min: 9,
+        max: 11,
+        required: true,
+        unique: true
+    },
+    address: {
+        type: String,
+        required: true,
+
+    }
 });
+
+const User = new mongoose.model("UserData", userSchema);
