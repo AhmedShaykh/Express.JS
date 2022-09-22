@@ -5,12 +5,17 @@ const User = require('./models/users');
 const app = express();
 const port = process.env.PORT || 8000;
 
+app.use(express.json());
+
 app.post("/users", (req, res) => {
-    console.log(res.body);
+    console.log(req.body);
 
-    const data = new User(res.body);
-
-    res.send("Students Data");
+    const data = new User(req.body);
+    data.save().then(() => {
+        res.status(201).send(data);
+    }).catch((e) => {
+        res.status(400).send(e);
+    });
 });
 
 app.listen(port, () => {
