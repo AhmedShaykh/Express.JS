@@ -13,8 +13,10 @@ app.post("/users", (req, res) => {
     const data = new User(req.body);
     data.save().then(() => {
         res.status(201).send(data);
+        return data;
     }).catch((e) => {
         res.status(400).send(e);
+        console.log(e)
     });
 });
 
