@@ -7,6 +7,7 @@ var fs = require('fs');
 
 // ** ASYNC **
 console.log('ASYNC 1');
+
 fs.readdir('./', function (err, files) {
     if (err) {
         console.log('Err: ', err)
