@@ -1,8 +1,9 @@
 const path = require('path');
 
-console.log('__filename ', __filename);
-console.log('dire', __dirname)
+console.log('Filename: ', __filename);
+
+console.log('Dir: ', __dirname);
 
 var pathObj = path.parse(__filename);
 
-console.log('pathObj ', pathObj)
+console.log('Path OBJ: ', pathObj);
