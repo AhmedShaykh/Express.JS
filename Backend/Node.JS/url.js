@@ -8,5 +8,5 @@ http.createServer(function (req, res) {
   var q = url.parse(req.url, true).query;
   console.log('q ', q);
   var txt = q.year + " " + q.month + " " + q.date;
-  res.end(txt);
+  res.end(txt + '<h1>Happy BirthDay!</h1>');
 }).listen(4000);

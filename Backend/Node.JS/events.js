@@ -6,9 +6,9 @@ emitter.on('messageLogged', function (arg) {
 });
 
 console.log('Emiting...!')
-emitter.emit('messageLogged', { id: 1, url: 'http://myUrl' });
+emitter.emit('messageLogged', { id: 200, url: 'http://myUrl' });
 
 setTimeout(() => {
     console.log('Emiting From SetTimeOut');
-    emitter.emit('messageLogged', { id: 2, from: 'SetTimeOut' });
+    emitter.emit('messageLogged', { id: 202, from: 'SetTimeOut' });
 }, 2000);

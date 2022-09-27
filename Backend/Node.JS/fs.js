@@ -3,7 +3,7 @@ var fs = require('fs');
 // ** SYNC ** //
 console.log('SYNC 1 ');
 
-var files = fs.readdirSync('./');  // 10min I.O (Input & Output) BLOCK
+var files = fs.readdirSync('./');  // 10min I.O Module (Input & Output) BLOCK
 console.log('SYNC 2', files);
 
 // ** ASYNC ** //
