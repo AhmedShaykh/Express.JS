@@ -7,7 +7,7 @@ app.use(cookieParser());
 
 app.get('/', function (req, res) {
     res.cookie('myFirstCookie', 'Looks Good');
-    res.send('Cookies...!');        // check in browser document.cookie
+    res.send('Cookies...!');
 });
 
 app.get('/clearCookie', function (req, res) {
@@ -15,6 +15,6 @@ app.get('/clearCookie', function (req, res) {
     res.send('Cookies Removed');
 });
 
-app.listen(3000, function () {
-    console.log(`Express Server Started on: http://localhost:3000`);
+app.listen(4000, function () {
+    console.log(`Express Server Started on: http://localhost:4000`);
 });
