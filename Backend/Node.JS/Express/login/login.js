@@ -10,13 +10,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
 app.use(sessions({
     secret: '&jh&B7H8^&^&*&^76FG&^f',
     resave: false,
     saveUninitialized: true
 }));
 
-// static folder
 app.use('/public', express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
@@ -73,7 +73,6 @@ app.get('*', function (req, res) {
     res.end('What Exactly you want?');
 });
 
-
-app.listen(3000, function () {
-    console.log(`Express Started on: http://localhost:${3000}`);
+app.listen(4000, function () {
+    console.log(`Express Started on: http://localhost:${4000}`);
 });

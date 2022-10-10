@@ -2,36 +2,18 @@ const express = require('express');
 
 const app = express();
 
-function log(req, res, next) {
-    console.log(new Date(), req.method, req.url);
+const middleWare = (req, res, next) => {
+    console.log(`Check Data`);
     next();
 }
 
-function secondMiddleware(req, res, next) {
-    console.log('Second Middileware');
-    next();
-}
+app.get('/', (req, res) => {
+    res.send('<h1>Middleware In Express.JS!</h1>')
+})
 
-app.get('/', log, secondMiddleware, function (req, res) {
-    res.send('Express Works');
-});
-
-app.get('/error', function (req, res, next) {
-    throw new Error('Testing Err');
-});
-
-function notDefineRoute(req, res, next) {
-    res.send('404 not Found');
-}
-app.use(notDefineRoute);
-
-
-function errorHandler(err, req, res, next) {
-    if (err) {
-        res.send('Errror: ' + err)
-    }
-}
-app.use(errorHandler);
+app.get('/about', middleWare, (req, res) => {
+    res.send('<h1>This Is About Page!</h1>')
+})
 
 app.listen(4000, function () {
     console.log(`Express Server Started on: http://localhost:4000`);
