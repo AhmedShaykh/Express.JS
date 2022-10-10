@@ -1,4 +1,5 @@
 const express = require('express');
+
 const app = express();
 
 function log(req, res, next) {
@@ -31,7 +32,6 @@ function errorHandler(err, req, res, next) {
     }
 }
 app.use(errorHandler);
-
 
 app.listen(4000, function () {
     console.log(`Express Server Started on: http://localhost:4000`);
