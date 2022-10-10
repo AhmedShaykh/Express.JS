@@ -6,21 +6,21 @@ const router2 = express.Router();
 const router3 = express.Router();
 
 router1.get('/', (req, res) => res.send('API is Live!'));
-router1.get('/user', (req, res) => res.send('/user calling'));
-router1.get('/group', (req, res) => res.send('/group calling'));
-router1.get('/post', (req, res) => res.send('/post calling'));
+router1.get('/user', (req, res) => res.send('/User Calling'));
+router1.get('/group', (req, res) => res.send('/Group Calling'));
+router1.get('/post', (req, res) => res.send('/Post Calling'));
 
-router2.get('/:username', (req, res) => res.send(JSON.stringify(req.params)));
+router2.get('/:username', (req, res) => res.send(req.params));
 
 router3.get('/', (req, res) => res.send('API is Live Updated ......!'))
 
 app.use('/apiV1', router1);
+app.use('/usersApi', router2);
 app.use('/apiV2', router3);
-app.use('/users', router2);
 
 
 app.get('/', function (req, res) {
-    res.send('Express Works');
+    res.send('Express.JS Work!');
 });
 
 app.listen(4000, function () {
