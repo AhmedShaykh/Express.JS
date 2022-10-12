@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 const middleWare = (req, res, next) => {
-    console.log(`Check Data`);
+    console.log(`Check Data`, new Date(), req.method, req.url);
     next();
 }
 
