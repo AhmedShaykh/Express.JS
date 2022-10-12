@@ -7,7 +7,7 @@ const middleWare = (req, res, next) => {
     next();
 }
 
-app.get('/', (req, res) => {
+app.get('/', middleWare, (req, res) => {
     res.send('<h1>Middleware In Express.JS!</h1>')
 })
 
