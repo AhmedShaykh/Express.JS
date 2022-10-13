@@ -17,8 +17,6 @@ app.use(sessions({
     saveUninitialized: true
 }));
 
-app.use('/public', express.static(__dirname + '/public'));
-
 app.get('/', function (req, res) {
     res.sendFile('index.html', {
         root: __dirname
@@ -56,7 +54,7 @@ app.get('/redirects', function (req, res) {
 app.get('/admin', function (req, res) {
     session = req.session;
     if (session.uniqueID) {
-        res.send('Wow you are Admin.....!!  <a href="/logout">Logout</a>')
+        res.send('Wow you are Admin.....! <a href="/logout">Logout</a>')
     } else {
         res.send('Who are you??');
     };
