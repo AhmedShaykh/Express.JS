@@ -62,13 +62,9 @@ app.get('/admin', function (req, res) {
 
 app.get('/logout', function (req, res) {
     req.session.destroy(function (err) {
-        console.log('Err ', err);
+        console.log('Error: ', err);
         res.redirect('/login');
     });
-});
-
-app.get('*', function (req, res) {
-    res.end('What Exactly you want?');
 });
 
 app.listen(4000, function () {
