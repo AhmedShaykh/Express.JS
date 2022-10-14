@@ -1,5 +1,4 @@
-const User = require('./07_userModel');
-
+const User = require('./userModel');
 
 function addUser() {
 
@@ -7,8 +6,8 @@ function addUser() {
 
     const joe = new User({ name: 'Doe' });
     joe.save()
-    .then(() => console.log('saved user'))
-    .catch((err) => console.log('Err ', err));
+        .then(() => console.log('saved user'))
+        .catch((err) => console.log('Err ', err));
 
 }
 

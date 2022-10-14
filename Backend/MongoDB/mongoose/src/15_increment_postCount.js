@@ -1,4 +1,4 @@
-const User = require('./07_userModel');
+const User = require('./userModel');
 
 const joe = new User({
     name: 'Joe'
