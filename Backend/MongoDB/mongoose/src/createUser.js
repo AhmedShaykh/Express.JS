@@ -4,10 +4,10 @@ function addUser() {
 
     console.log('adding user');
 
-    const joe = new User({ name: 'Doe' });
-    joe.save()
-        .then(() => console.log('saved user'))
-        .catch((err) => console.log('Err ', err));
+    const username = new User({ name: 'AHM X' });
+    username.save()
+        .then(() => console.log('Saved User'))
+        .catch((err) => console.log('Error ', err));
 
 }
 
