@@ -27,10 +27,7 @@ app.post('/login', function (req, res) {
     var token = null;
     if (req.body.username == 'admin' && req.body.password == 'admin') {
         token = jwt.sign({ username: req.body.username }, secretKey, { expiresIn: '15m' });
-        // console.log('token ', token);
-        // console.log('verifying... ', jwt.verify(token,secretKey))
     }
-
     res.redirect('/redirects?token=' + token);
 });
 
