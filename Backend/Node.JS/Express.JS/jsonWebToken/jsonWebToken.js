@@ -11,9 +11,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-// static folder
-app.use('/public', express.static(__dirname + '/public'));
-
 app.get('/', function (req, res) {
     res.sendFile('login.html', {
         root: __dirname
@@ -27,20 +24,20 @@ app.get('/login', function (req, res) {
 });
 
 app.post('/login', function (req, res) {
-    var token = null;    
+    var token = null;
     if (req.body.username == 'admin' && req.body.password == 'admin') {
-         token = jwt.sign({username: req.body.username}, secretKey, { expiresIn: '15m' });
+        token = jwt.sign({ username: req.body.username }, secretKey, { expiresIn: '15m' });
         // console.log('token ', token);
         // console.log('verifying... ', jwt.verify(token,secretKey))
     }
 
-    res.redirect('/redirects?token='+token);
+    res.redirect('/redirects?token=' + token);
 });
 
 app.get('/redirects', function (req, res) {
     console.log('req.query.token ', req.query.token)
     if (!req.query.token) {
-        console.log('verifying... ', jwt.verify(token,secretKey))
+        console.log('verifying... ', jwt.verify(token, secretKey))
         res.redirect('/admin');
     } else {
         res.send('Who are you??');
@@ -59,7 +56,6 @@ app.get('*', function (req, res) {
     res.end('What Exactly you want?');
 });
 
-
-app.listen(3000, function () {
-    console.log(`Express Started on: http://localhost:${3000}`);
+app.listen(4000, function () {
+    console.log(`Express Started on: http://localhost:${4000}`);
 });
