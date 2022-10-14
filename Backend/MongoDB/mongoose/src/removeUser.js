@@ -1,26 +1,21 @@
-const User = require('./07_userModel');
+const User = require('./userModel');
 
-const joe = new User({
-    name: 'Joe'
+const username = new User({
+    name: 'AHM X'
 });
 
-joe.save()
+username.save()
     .then(() => {
-
         // model instance remove (13b)
-        joe.remove().then().catch(err);
+        username.remove().then().catch(err);
 
-        // class method remove
-        User.remove({name: 'Joe'});     // also return promise
+        // All Username Remove
+        User.remove({ name: 'AHM X' });
 
+        // Username Find & Remove
+        User.findOneAndRemove({ name: 'AHM X' });
 
-        // class method FindAndRemove
-        User.findOneAndRemove({name: 'Joe'});     // also return promise
-
-
-        // class method FindByIdAndRemove
-        User.findByIdAndRemove(joe._id);     // also return promise
-
-
+        // Username Find ID & Remove
+        User.findByIdAndRemove(username._id);
     })
-    .catch((err) => console.log('Err ', err));
+    .catch((err) => console.log('Error: ', err));
