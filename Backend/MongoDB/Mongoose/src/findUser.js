@@ -7,7 +7,7 @@ User.find({ name: 'AHM X' })
     })
     .catch((err) => console.log('Err ', err));
 
-User.findOne({ name: 'AHM X' }) // or you can use { _id: 'whatEverId' }
+User.findOne({ name: 'AHM X' })
     .then((user) => {
         // Return One Object
         console.log('User: ', user);
