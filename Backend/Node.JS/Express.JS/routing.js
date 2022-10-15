@@ -18,7 +18,6 @@ app.use('/apiV1', router1);
 app.use('/usersApi', router2);
 app.use('/apiV2', router3);
 
-
 app.get('/', function (req, res) {
     res.send('Express.JS Work!');
 });

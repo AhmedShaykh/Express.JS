@@ -47,16 +47,16 @@ app.get('/redirects', function (req, res) {
     if (session.uniqueID) {
         res.redirect('/admin');
     } else {
-        res.send('Who are you??');
+        res.send('Who are you...? <a href="/logout">Go Back</a>');
     }
 });
 
 app.get('/admin', function (req, res) {
     session = req.session;
     if (session.uniqueID) {
-        res.send('Wow you are Admin.....! <a href="/logout">Logout</a>')
+        res.send('Wow you are Admin...! <a href="/logout">Logout</a>')
     } else {
-        res.send('Who are you??');
+        res.send('Who are you...? <a href="/logout">Go Back</a>');
     };
 });
 
