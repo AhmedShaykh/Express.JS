@@ -1,10 +1,10 @@
-var http = require('http');
-var courses = [{ id: 1, name: 'Node.JS' }, { id: 2, name: 'Nest.JS' }];
-var users = ['Client', 'Server'];
+const http = require('http');
+const courses = [{ id: 1, name: 'Node.JS' }, { id: 2, name: 'Nest.JS' }];
+const users = ['Client', 'Server'];
 
 const port = process.env.PORT || 4000;
 
-var server = http.createServer(function (request, response) {
+let server = http.createServer(function (request, response) {
     console.log('Got a Request! ', request.url);
 
     if (request.url === '/') {

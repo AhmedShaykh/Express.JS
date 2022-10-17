@@ -1,4 +1,4 @@
-var fs = require('fs');
+const fs = require('fs');
 
 function writeFile(savPath, data) {
     fs.writeFile(savPath, data, function (err) {

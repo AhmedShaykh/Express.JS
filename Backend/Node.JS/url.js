@@ -1,12 +1,16 @@
-var http = require('http');
-var url = require('url');
+const url = require('url');
 
-http.createServer(function (req, res) {
-  console.log('URl ', req.url);
-  console.log('MEthod', req.method);
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  var q = url.parse(req.url, true).query;
-  console.log('q ', q);
-  var txt = q.year + " " + q.month + " " + q.date;
-  res.end(txt + '<h1>Happy BirthDay!</h1>');
-}).listen(4000);
+const myURL = new URL("https://ahmx.eth:4000/wallet?a=x#TH44546533432YU");
+
+console.log(myURL);
+console.log(myURL.href);
+console.log(myURL.origin);
+console.log(myURL.host);
+console.log(myURL.protocol);
+console.log(myURL.port);
+console.log(myURL.pathname);
+console.log(myURL.search);
+console.log(myURL.searchParams);
+console.log(myURL.hash);
+console.log(myURL.toJSON());
+console.log(myURL.toString());
