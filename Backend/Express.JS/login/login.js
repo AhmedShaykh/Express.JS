@@ -8,7 +8,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: false
 }));
 
 app.use(sessions({
@@ -28,7 +28,7 @@ app.get('/login', function (req, res) {
     if (session.uniqueID) {
         res.redirect('/redirects');
     } else {
-        res.sendFile('login.html', {
+        res.sendFile('./login.html', {
             root: __dirname
         });
     }
@@ -47,7 +47,7 @@ app.get('/redirects', function (req, res) {
     if (session.uniqueID) {
         res.redirect('/admin');
     } else {
-        res.send('Who are you...? <a href="/logout">Go Back</a>');
+        res.send('Please Fill Correct the Form! <a href="/login">Go Back</a>');
     }
 });
 
@@ -56,7 +56,7 @@ app.get('/admin', function (req, res) {
     if (session.uniqueID) {
         res.send('Wow you are Admin...! <a href="/logout">Logout</a>')
     } else {
-        res.send('Who are you...? <a href="/logout">Go Back</a>');
+        res.send('Please Fill Correct the Form! <a href="/logout">Go Back</a>');
     };
 });
 
