@@ -22,18 +22,13 @@ app.set('port', process.env.PORT || 4000);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/users', function (req, res) {
-    User.find({}) // All User's
+app.get('/', function (req, res) {
+    User.find({})
         .then((users) => {
             console.log('Users ', users);
             res.json(users);
         })
         .catch((err) => console.log('Error: ', err));
-});
-
-app.post('/user', (req, res) => {
-    console.log('req.body', req.body)
-    res.end(JSON.stringify(req.body));
 });
 
 app.listen(app.get('port'), function () {

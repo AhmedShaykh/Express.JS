@@ -6,10 +6,7 @@ const username = new User({
 
 username.save()
     .then(() => {
-        // model instance remove (13b)
-        username.remove().then().catch(err);
-
-        // All Username Remove
+        // Username Remove
         User.remove({ name: 'AHM X' });
 
         // Username Find & Remove

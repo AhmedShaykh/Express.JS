@@ -6,13 +6,6 @@ const username = new User({
 
 username.save()
     .then(() => {
-        // instance type using set n save
-        username.set('name', 'Ahmed');
-
-        // problem is, if we have many properties, 
-        // we need to set many times like for AGE, ADDRESS and so on...
-        username.save();
-
         // Update Method
         username.update({ name: 'Ahmed' });
 
