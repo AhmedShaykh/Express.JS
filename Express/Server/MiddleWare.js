@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const port = 5000;
+const port = 4000;
 
 const middleWare = (req, res, next) => {
     console.log(`Hello Check Data`);
