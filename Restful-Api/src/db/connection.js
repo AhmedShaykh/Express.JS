@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://admin:admin1234@cluster0.jivsgsq.mongodb.net/testing?retryWrites=true&w=majority", { useNewUrlParser: true });
-
-mongoose.connection
-    .once('open', () => {
-        console.log('Connection is Established');
-    })
-    .on('error', (err) => {
+mongoose.connect("mongodb+srv://admin:admin1234@cluster0.jivsgsq.mongodb.net/userdata?retryWrites=true&w=majority", {
+    useNewUrlParser: true
+}
+).then(() => {
+    console.log('Connection is Established');
+})
+    .catch((err) => {
         console.log('Error: ', err);
     })

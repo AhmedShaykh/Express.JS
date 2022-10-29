@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     },
     phone: {
         type: Number,
-        min: 9,
+        min: 10,
         required: true,
         unique: true
     },
@@ -30,6 +30,6 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-const User = new mongoose.model("UserData", userSchema);
+const User = new mongoose.model("User", userSchema);
 
 module.exports = User;

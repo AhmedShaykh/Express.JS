@@ -1,6 +1,6 @@
 const express = require('express');
 require("./db/connection");
-// const User = require('./models/users');
+const User = require('./models/users');
 
 const app = express();
 
@@ -8,7 +8,7 @@ const port = process.env.PORT || 4000;
 
 // app.use(express.json());
 
-app.post("/students", (req, res) => {
+app.post("/users", (req, res) => {
     console.log(req.body);
 
     res.send("Hello");
