@@ -22,6 +22,7 @@ app.use(express.json());
 // });
 
 app.post("/users", async (req, res) => {
+
     try {
         const data = new User(req.body);
 
@@ -31,6 +32,17 @@ app.post("/users", async (req, res) => {
     catch (e) {
         res.status(400).send(e);
     }
+
+});
+
+app.get("/users", async (req, res) => {
+
+    try {
+        const findData = await User.find();
+        res.send(findData);
+    }
+    catch (e) { res.send(e) }
+
 });
 
 app.listen(port, () => {
