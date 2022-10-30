@@ -8,18 +8,7 @@ const port = process.env.PORT || 4000;
 
 app.use(express.json());
 
-// app.post("/users", (req, res) => {
-//     console.log(req.body);
-
-//     const data = new User(req.body);
-//     data.save().then(() => {
-//         res.status(201).send(data);
-//         return data;
-//     }).catch((e) => {
-//         res.status(400).send(e);
-//         console.log(e)
-//     });
-// });
+// ========= POST ========= //
 
 app.post("/users", async (req, res) => {
 
@@ -35,13 +24,32 @@ app.post("/users", async (req, res) => {
 
 });
 
+// ========= GET ========= //
+
 app.get("/users", async (req, res) => {
 
     try {
         const findData = await User.find();
         res.send(findData);
     }
-    catch (e) { res.send(e) }
+    catch (e) { res.status(500).send(e); }
+
+});
+
+app.get("/users/:id", async (req, res) => {
+
+    try {
+        const _id = req.params.id
+        const userFindId = await User.findById(_id);
+
+        if (!userFindId) {
+            res.status(404).send();
+        }
+        else {
+            res.send(userFindId);
+        }
+    }
+    catch (e) { res.status(500).send(e); }
 
 });
 
