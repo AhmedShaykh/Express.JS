@@ -39,7 +39,7 @@ app.get("/users", async (req, res) => {
 app.get("/users/:id", async (req, res) => {
 
     try {
-        const _id = req.params.id
+        const _id = req.params.id;
         const userFindId = await User.findById(_id);
 
         if (!userFindId) {
@@ -58,7 +58,7 @@ app.get("/users/:id", async (req, res) => {
 app.patch("/users/:id", async (req, res) => {
 
     try {
-        const _id = req.params.id
+        const _id = req.params.id;
         const userUpdate = await User.findByIdAndUpdate(_id, req.body, {
             new: true
         });
@@ -67,6 +67,22 @@ app.patch("/users/:id", async (req, res) => {
     }
     catch (e) { res.status(404).send(e); }
 
+});
+
+// ========= DELETE ========= //
+
+app.delete("/users/:id", async (req, res) => {
+
+    try {
+        const userDelete = await User.findByIdAndDelete(req.params.id);
+
+        if (!req.params.id) {
+            res.status(404).send();
+        }
+
+        res.send(userDelete);
+    }
+    catch (e) { res.status(500).send(e) }
 });
 
 app.listen(port, () => {
