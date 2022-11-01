@@ -6,7 +6,15 @@ const app = express();
 
 const port = process.env.PORT || 4000;
 
+const router = new express.Router();
+
+app.use(router);
+
 app.use(express.json());
+
+router.get("/", (req, res) => {
+    res.send("<h1>Hello</h1>")
+});
 
 // ========= POST ========= //
 
