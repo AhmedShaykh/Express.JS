@@ -1,97 +1,13 @@
 const express = require('express');
 require("./db/connection");
-const User = require('./models/users');
-
-const app = express();
+const userRouter = require("./routers/user");
 
 const port = process.env.PORT || 4000;
 
-const router = new express.Router();
-
-app.use(router);
+const app = express();
 
 app.use(express.json());
-
-router.get("/", (req, res) => {
-    res.send("<h1>Hello</h1>")
-});
-
-// ========= POST ========= //
-
-app.post("/users", async (req, res) => {
-
-    try {
-        const data = new User(req.body);
-
-        const createUser = await data.save();
-        res.status(201).send(createUser);
-    }
-    catch (e) {
-        res.status(400).send(e);
-    }
-
-});
-
-// ========= GET ========= //
-
-app.get("/users", async (req, res) => {
-
-    try {
-        const findData = await User.find();
-        res.send(findData);
-    }
-    catch (e) { res.status(500).send(e); }
-
-});
-
-app.get("/users/:id", async (req, res) => {
-
-    try {
-        const _id = req.params.id;
-        const userFindId = await User.findById(_id);
-
-        if (!userFindId) {
-            res.status(404).send();
-        }
-        else {
-            res.send(userFindId);
-        }
-    }
-    catch (e) { res.status(500).send(e); }
-
-});
-
-// ========= PATCH ========= //
-
-app.patch("/users/:id", async (req, res) => {
-
-    try {
-        const _id = req.params.id;
-        const userUpdate = await User.findByIdAndUpdate(_id, req.body, {
-            new: true
-        });
-
-        res.send(userUpdate);
-    }
-    catch (e) { res.status(404).send(e); }
-
-});
-
-// ========= DELETE ========= //
-
-app.delete("/users/:id", async (req, res) => {
-
-    try {
-        const userDelete = await User.findByIdAndDelete(req.params.id);
-
-        if (!req.params.id) {
-            res.status(404).send();
-        }
-
-        res.send(userDelete);
-    }
-    catch (e) { res.status(500).send(e) }
-});
+app.use(userRouter);
 
 app.listen(port, () => {
     console.log(`Server is listening on Port ${port}`);
