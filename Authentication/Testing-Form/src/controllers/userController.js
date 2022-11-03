@@ -32,10 +32,13 @@ const signup = async (req, res) => {
         // ========== Create Token ========== //
 
         const token = jwt.sign({ email: result.email, id: result._id }, SECRET_KEY);
+        res.status(201).json({ user: result, token: token });
+
     }
 
     catch (error) {
-
+        console.log(error);
+        res.status(500).json({ message: "Somethin Went Worng!" });
     }
 };
 
