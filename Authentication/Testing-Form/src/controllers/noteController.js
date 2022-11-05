@@ -1,6 +1,6 @@
 const noteModel = require("../models/note");
 
-const createNode = async (req, res) => {
+const createNote = async (req, res) => {
 
     const { title, description } = req.body;
 
@@ -25,18 +25,19 @@ const createNode = async (req, res) => {
 
 };
 
-const updateNode = async (req, res) => {
+const updateNote = async (req, res) => {
 };
 
-const deleteNode = async (req, res) => {
+const deleteNote = async (req, res) => {
 };
 
-const getNode = async (req, res) => {
+const getNote = async (req, res) => {
 
     try {
 
         const notes = await noteModel.find({ userId: req.userId });
         res.status(200).json(notes);
+
 
     }
     catch (error) {
@@ -49,8 +50,8 @@ const getNode = async (req, res) => {
 };
 
 module.exports = {
-    createNode,
-    updateNode,
-    deleteNode,
-    getNode
+    createNote,
+    updateNote,
+    deleteNote,
+    getNote
 };
