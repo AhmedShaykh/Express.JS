@@ -1,12 +1,14 @@
 const express = require("express");
+const auth = require("../middlewares/auth");
+const { getNode, createNode, deleteNode, updateNode } = require("../controllers/noteController");
 const noteRouter = express.Router();
 
-noteRouter.get("/", (req, res) => {
-    res.send("<h1>Not GET Request!</h1>");
-});
+noteRouter.get("/", auth, getNode);
 
-noteRouter.post("/", (req, res) => {
-    res.send("<h1>Not POST Request!</h1>");
-});
+noteRouter.post("/", auth, createNode);
+
+noteRouter.put("/:id", auth, updateNode);
+
+noteRouter.delete("/:id", auth, deleteNode);
 
 module.exports = noteRouter;
