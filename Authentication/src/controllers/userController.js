@@ -68,7 +68,7 @@ const signin = async (req, res) => {
         // ========== Token Check ========== //
 
         const token = jwt.sign({ email: existingUser.email, id: existingUser._id }, SECRET_KEY);
-        res.status(201).json({ user: existingUser, token: token });
+        res.status(200).json({ user: existingUser, token: token });
 
     }
 

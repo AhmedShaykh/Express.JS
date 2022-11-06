@@ -13,7 +13,7 @@ const auth = (req, res, next) => {
             req.userId = user.id;
         }
         else {
-            res.status(401).json({ message: "Unauthorized User" });
+            return res.status(401).json({ message: "Unauthorized User" });
         }
 
         next();
