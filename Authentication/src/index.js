@@ -10,6 +10,11 @@ const port = process.env.PORT || 4000;
 
 app.use(express.json());
 
+app.use((req, res, next) => {
+    console.log("HTTP Method " + req.method + ", URL " + req.url);
+    next()
+});
+
 app.use("/users", userRouter);
 app.use("/note", noteRouter);
 
