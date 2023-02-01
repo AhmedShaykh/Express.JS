@@ -13,4 +13,4 @@ app.set('views', './views');
 
 app.listen(port, () => {
     console.log(`Blog app listening on port ${port}`);
-})
+});
